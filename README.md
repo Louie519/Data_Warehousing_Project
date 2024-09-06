@@ -1,12 +1,12 @@
 # Taxi Service Data Warehouse Project
 
 ## Introduction
-This project aims to build a data warehouse for analyzing taxi service data. The primary goal is to understand taxi service usage patterns, including high-demand zones, peak times throughout the year, and factors affecting total revenue like tip amounts. This analysis will enable taxi drivers to optimize their services, improve customer satisfaction, and increase profitability.
+This project aims to build a data warehouse for efficieent analysis of taxi service data. The primary goal is to understand taxi service usage patterns, including high-demand zones, peak times throughout the year, and factors affecting total revenue like tip amounts. This analysis will enable taxi drivers to optimize their services, improve customer satisfaction, and increase profitability.
 
 This document provides an overview of the dataset we worked with and guidelines to set up the project in your local environment.
 
 ## Data Description
-Below is a description of the dataset used in this project:
+Below is a description of the transformed dataset used to populate our SQL database:
 
 | Field Name             | Description |
 | ---------------------- | ----------- |
@@ -53,6 +53,7 @@ Below is a description of the dataset used in this project:
 | `day_of_week`          | Day of the week (1 = Monday, 2 = Tuesday, etc.). |
 | `is_holiday`           | Boolean indicating if the day is a federal holiday (based on the `USFederalHolidayCalendar` library). |
 
+We used Yellow Taxi trip data for the years 2020-2023 collected from the [NYC Taxi & Limousine Comission website](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page). 
 
 ## ETL Process
 
@@ -61,7 +62,7 @@ Data cleaning was performed to eliminate records with negative values for trip d
 
 **Feature Engineering**:
 - New measures: trip time in minutes, fare per minute, tip per minute, tip percentage, and average mph were calculated.
-- Categorical dimensions were enriched by merging with the `taxi_zones.csv` file from [NYC Taxi Zones Data](https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/d3c5-ddgc).
+- Categorical dimensions were enriched (geographic details, i.e. burough) by merging with the `taxi_zones.csv` file from [NYC Taxi Zones Data](https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/d3c5-ddgc). 
 
 ### Load Data to Data Warehouse
 To load data into the data warehouse, set the following variables:
